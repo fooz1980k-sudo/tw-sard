@@ -1,495 +1,497 @@
 {
-  "name": {
-    "ar": "سَرد — عناصر قصة العلامة",
-    "en": "Sard — Brand Story Components"
-  },
-  "description": {
-    "ar": "5 عناصر تحكي قصة علامتك بأسلوب المجلات الفاخرة: حكايتنا بصور متحركة مع التمرير، رحلتنا بخط زمني يرسم نفسه، كلمة المؤسس بتوقيع، قيمنا بإضاءة تتبع المؤشر، وخطوات الصنع.",
-    "en": "5 editorial components that tell your brand story: parallax story, self-drawing timeline, founder's note with signature, values grid with cursor light, and how-it's-made steps."
-  },
-  "author": {
-    "name": "Khaled Alshamrani",
-    "email": "fooz1980k@gmail.com",
-    "url": "https://github.com/fooz1980k-sudo/tw-sard"
-  },
-  "repository": "https://github.com/fooz1980k-sudo/tw-sard",
-  "components": [
-    {
-      "title": "سَرد · حكايتنا",
-      "icon": "sicon-book-open",
-      "name": "sard-story",
-      "fields": [
-        {
-          "id": "eyebrow",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "سطر صغير",
-          "format": "text",
-          "required": false,
-          "maxLength": 30,
-          "value": "حكايتنا",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 80,
-          "value": "بدأنا بفكرة… وصارت تُحفة",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "text",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "النص",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 900,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "image",
-          "icon": "sicon-image-landscape",
-          "type": "string",
-          "format": "image",
-          "label": "الصورة الرئيسية",
-          "required": false,
-          "value": ""
-        },
-        {
-          "id": "image2",
-          "icon": "sicon-image-landscape",
-          "type": "string",
-          "format": "image",
-          "label": "صورة ثانية (اختياري)",
-          "required": false,
-          "value": ""
-        },
-        {
-          "id": "button",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "نص الزر",
-          "format": "text",
-          "required": false,
-          "maxLength": 30,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "link",
-          "icon": "sicon-link",
-          "type": "string",
-          "format": "url",
-          "label": "رابط الزر",
-          "required": false,
-          "value": "",
-          "placeholder": "https://"
-        },
-        {
-          "id": "flip",
-          "icon": "sicon-toggle-off",
-          "type": "boolean",
-          "format": "switch",
-          "label": "الصور على الجهة الثانية",
-          "required": false,
-          "value": false
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "b53b1619-70e5-5e44-b8be-b78ca6e8129b",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-story.jpg"
+    "name": {
+        "ar": "سَرد — عناصر قصة العلامة",
+        "en": "Sard — Brand Story Components"
     },
-    {
-      "title": "سَرد · رحلتنا",
-      "icon": "sicon-git-commit",
-      "name": "sard-timeline",
-      "fields": [
-        {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "محطات صنعتنا",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "subtitle",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الوصف",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 200,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "items",
-          "icon": "sicon-list",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 10,
-          "item_label": "محطة",
-          "fields": [
-            {
-              "id": "year",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "السنة",
-              "format": "text",
-              "required": false,
-              "maxLength": 10,
-              "value": "",
-              "placeholder": ""
-            },
-            {
-              "id": "title",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "العنوان",
-              "format": "text",
-              "required": false,
-              "maxLength": 60,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "text",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "الوصف",
-              "format": "textarea",
-              "required": false,
-              "maxLength": 240,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "image",
-              "icon": "sicon-image-landscape",
-              "type": "string",
-              "format": "image",
-              "label": "صورة (اختياري)",
-              "required": false,
-              "value": ""
-            }
-          ],
-          "value": [
-            {
-              "year": "2020",
-              "title": "البداية",
-              "text": ""
-            }
-          ]
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "5a1b2ef1-9285-56e7-8346-5cfba7d19169",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-timeline.jpg"
+    "description": {
+        "ar": "5 عناصر تحكي قصة علامتك بأسلوب المجلات الفاخرة: حكايتنا بصور متحركة مع التمرير، رحلتنا بخط زمني يرسم نفسه، كلمة المؤسس بتوقيع، قيمنا بإضاءة تتبع المؤشر، وخطوات الصنع.",
+        "en": "5 editorial components that tell your brand story: parallax story, self-drawing timeline, founder's note with signature, values grid with cursor light, and how-it's-made steps."
     },
-    {
-      "title": "سَرد · كلمة المؤسس",
-      "icon": "sicon-user",
-      "name": "sard-founder",
-      "fields": [
-        {
-          "id": "image",
-          "icon": "sicon-image-landscape",
-          "type": "string",
-          "format": "image",
-          "label": "صورة المؤسس أو العمل",
-          "required": false,
-          "value": ""
-        },
-        {
-          "id": "quote",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الكلمة",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 400,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "name",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الاسم",
-          "format": "text",
-          "required": false,
-          "maxLength": 40,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "role",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الصفة",
-          "format": "text",
-          "required": false,
-          "maxLength": 40,
-          "value": "المؤسس",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "1ca2c368-7bee-5c50-82d7-1d8b8d54da62",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-founder.jpg"
+    "author": {
+        "name": "Khaled Alshamrani",
+        "email": "fooz1980k@gmail.com",
+        "url": "https://github.com/fooz1980k-sudo/tw-sard"
     },
-    {
-      "title": "سَرد · قيمنا",
-      "icon": "sicon-diamond",
-      "name": "sard-values",
-      "fields": [
+    "repository": "https://github.com/fooz1980k-sudo/tw-sard",
+    "components": [
         {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "اللي يميزنا",
-          "placeholder": "",
-          "multilanguage": true
+            "title": "سَرد · حكايتنا",
+            "icon": "sicon-book-open",
+            "name": "sard-story",
+            "fields": [
+                {
+                    "id": "eyebrow",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "سطر صغير",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 30,
+                    "value": "حكايتنا",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 80,
+                    "value": "بدأنا بفكرة… وصارت تُحفة",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "text",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "النص",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 900,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "image",
+                    "icon": "sicon-image-landscape",
+                    "type": "string",
+                    "format": "image",
+                    "label": "الصورة الرئيسية",
+                    "required": false,
+                    "value": ""
+                },
+                {
+                    "id": "image2",
+                    "icon": "sicon-image-landscape",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة ثانية (اختياري)",
+                    "required": false,
+                    "value": ""
+                },
+                {
+                    "id": "button",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "نص الزر",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 30,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "link",
+                    "icon": "sicon-link",
+                    "type": "string",
+                    "format": "url",
+                    "label": "رابط الزر",
+                    "required": false,
+                    "value": "",
+                    "placeholder": "https://"
+                },
+                {
+                    "id": "flip",
+                    "icon": "sicon-toggle-off",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "الصور على الجهة الثانية",
+                    "required": false,
+                    "value": false
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "b53b1619-70e5-5e44-b8be-b78ca6e8129b",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-story.jpg"
         },
         {
-          "id": "subtitle",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الوصف",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 200,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
+            "title": "سَرد · رحلتنا",
+            "icon": "sicon-git-commit",
+            "name": "sard-timeline",
+            "fields": [
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "محطات صنعتنا",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "subtitle",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الوصف",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 200,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items",
+                    "icon": "sicon-list",
+                    "type": "collection",
+                    "format": "collection",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 10,
+                    "item_label": "محطة",
+                    "fields": [
+                        {
+                            "id": "year",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "السنة",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 10,
+                            "value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "id": "title",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "العنوان",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 60,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "text",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "الوصف",
+                            "format": "textarea",
+                            "required": false,
+                            "maxLength": 240,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "image",
+                            "icon": "sicon-image-landscape",
+                            "type": "string",
+                            "format": "image",
+                            "label": "صورة (اختياري)",
+                            "required": false,
+                            "value": ""
+                        }
+                    ],
+                    "value": [
+                        {
+                            "year": "2020",
+                            "title": "البداية",
+                            "text": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "5a1b2ef1-9285-56e7-8346-5cfba7d19169",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-timeline.jpg"
         },
         {
-          "id": "items",
-          "icon": "sicon-list",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 8,
-          "item_label": "قيمة",
-          "fields": [
-            {
-              "id": "emoji",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "رمز",
-              "format": "text",
-              "required": false,
-              "maxLength": 4,
-              "value": "✦",
-              "placeholder": ""
-            },
-            {
-              "id": "title",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "العنوان",
-              "format": "text",
-              "required": false,
-              "maxLength": 40,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "text",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "الوصف",
-              "format": "textarea",
-              "required": false,
-              "maxLength": 200,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            }
-          ],
-          "value": [
-            {
-              "emoji": "🌿",
-              "title": "مكونات نظيفة",
-              "text": ""
-            }
-          ]
+            "title": "سَرد · كلمة المؤسس",
+            "icon": "sicon-user",
+            "name": "sard-founder",
+            "fields": [
+                {
+                    "id": "image",
+                    "icon": "sicon-image-landscape",
+                    "type": "string",
+                    "format": "image",
+                    "label": "صورة المؤسس أو العمل",
+                    "required": false,
+                    "value": ""
+                },
+                {
+                    "id": "quote",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الكلمة",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 400,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "name",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الاسم",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 40,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "role",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الصفة",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 40,
+                    "value": "المؤسس",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "1ca2c368-7bee-5c50-82d7-1d8b8d54da62",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-founder.jpg"
         },
         {
-          "id": "dark",
-          "icon": "sicon-toggle-off",
-          "type": "boolean",
-          "format": "switch",
-          "label": "خلفية داكنة",
-          "required": false,
-          "value": false
+            "title": "سَرد · قيمنا",
+            "icon": "sicon-diamond",
+            "name": "sard-values",
+            "fields": [
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "اللي يميزنا",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "subtitle",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الوصف",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 200,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "items",
+                    "icon": "sicon-list",
+                    "type": "collection",
+                    "format": "collection",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 8,
+                    "item_label": "قيمة",
+                    "fields": [
+                        {
+                            "id": "emoji",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "رمز",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 4,
+                            "value": "✦",
+                            "placeholder": ""
+                        },
+                        {
+                            "id": "title",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "العنوان",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 40,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "text",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "الوصف",
+                            "format": "textarea",
+                            "required": false,
+                            "maxLength": 200,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        }
+                    ],
+                    "value": [
+                        {
+                            "emoji": "🌿",
+                            "title": "مكونات نظيفة",
+                            "text": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "dark",
+                    "icon": "sicon-toggle-off",
+                    "type": "boolean",
+                    "format": "switch",
+                    "label": "خلفية داكنة",
+                    "required": false,
+                    "value": false
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "85df867a-7945-5321-9023-9c3a6708e06d",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-values.jpg"
         },
         {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
+            "title": "سَرد · كيف نصنعها",
+            "icon": "sicon-list-numbered",
+            "name": "sard-process",
+            "fields": [
+                {
+                    "id": "title",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "العنوان",
+                    "format": "text",
+                    "required": false,
+                    "maxLength": 120,
+                    "value": "من الفكرة لين باب بيتك",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "subtitle",
+                    "icon": "sicon-format-text-alt",
+                    "type": "string",
+                    "label": "الوصف",
+                    "format": "textarea",
+                    "required": false,
+                    "maxLength": 200,
+                    "value": "",
+                    "placeholder": "",
+                    "multilanguage": true
+                },
+                {
+                    "id": "steps",
+                    "icon": "sicon-list",
+                    "type": "collection",
+                    "format": "collection",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 6,
+                    "item_label": "خطوة",
+                    "fields": [
+                        {
+                            "id": "emoji",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "رمز",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 4,
+                            "value": "✦",
+                            "placeholder": ""
+                        },
+                        {
+                            "id": "title",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "العنوان",
+                            "format": "text",
+                            "required": false,
+                            "maxLength": 40,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        },
+                        {
+                            "id": "text",
+                            "icon": "sicon-format-text-alt",
+                            "type": "string",
+                            "label": "الوصف",
+                            "format": "textarea",
+                            "required": false,
+                            "maxLength": 160,
+                            "value": "",
+                            "placeholder": "",
+                            "multilanguage": true
+                        }
+                    ],
+                    "value": [
+                        {
+                            "emoji": "🛒",
+                            "title": "تطلب",
+                            "text": ""
+                        }
+                    ]
+                },
+                {
+                    "id": "color",
+                    "icon": "sicon-color-palette",
+                    "type": "string",
+                    "format": "color",
+                    "inputType": "color",
+                    "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
+                    "required": false,
+                    "value": ""
+                }
+            ],
+            "key": "001a029b-518f-59d1-8d35-1e374763d003",
+            "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-process.jpg"
         }
-      ],
-      "key": "85df867a-7945-5321-9023-9c3a6708e06d",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-values.jpg"
-    },
-    {
-      "title": "سَرد · كيف نصنعها",
-      "icon": "sicon-list-numbered",
-      "name": "sard-process",
-      "fields": [
-        {
-          "id": "title",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "العنوان",
-          "format": "text",
-          "required": false,
-          "maxLength": 120,
-          "value": "من الفكرة لين باب بيتك",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "subtitle",
-          "icon": "sicon-format-text-alt",
-          "type": "string",
-          "label": "الوصف",
-          "format": "textarea",
-          "required": false,
-          "maxLength": 200,
-          "value": "",
-          "placeholder": "",
-          "multilanguage": true
-        },
-        {
-          "id": "steps",
-          "icon": "sicon-list",
-          "type": "collection",
-          "format": "collection",
-          "required": true,
-          "minLength": 1,
-          "maxLength": 6,
-          "item_label": "خطوة",
-          "fields": [
-            {
-              "id": "emoji",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "رمز",
-              "format": "text",
-              "required": false,
-              "maxLength": 4,
-              "value": "✦",
-              "placeholder": ""
-            },
-            {
-              "id": "title",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "العنوان",
-              "format": "text",
-              "required": false,
-              "maxLength": 40,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            },
-            {
-              "id": "text",
-              "icon": "sicon-format-text-alt",
-              "type": "string",
-              "label": "الوصف",
-              "format": "textarea",
-              "required": false,
-              "maxLength": 160,
-              "value": "",
-              "placeholder": "",
-              "multilanguage": true
-            }
-          ],
-          "value": [
-            {
-              "emoji": "🛒",
-              "title": "تطلب",
-              "text": ""
-            }
-          ]
-        },
-        {
-          "id": "color",
-          "icon": "sicon-color-palette",
-          "type": "string",
-          "format": "color",
-          "inputType": "color",
-          "label": "لون مميز (اختياري — الافتراضي لون متجرك)",
-          "required": false,
-          "value": ""
-        }
-      ],
-      "key": "001a029b-518f-59d1-8d35-1e374763d003",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-process.jpg"
-    }
-  ]
+    ],
+    "author_email": "fooz1980k@gmail.com",
+    "support_url": ""
 }
