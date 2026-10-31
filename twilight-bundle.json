@@ -10,9 +10,9 @@
   "author": {
     "name": "Khaled Alshamrani",
     "email": "fooz1980k@gmail.com",
-    "url": "https://github.com/fooz1980k-sudo/sard-bundle"
+    "url": "https://github.com/fooz1980k-sudo/tw-sard"
   },
-  "repository": "https://github.com/fooz1980k-sudo/sard-bundle",
+  "repository": "https://github.com/fooz1980k-sudo/tw-sard",
   "components": [
     {
       "title": "سَرد · حكايتنا",
@@ -116,7 +116,7 @@
         }
       ],
       "key": "b53b1619-70e5-5e44-b8be-b78ca6e8129b",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/sard-bundle/main/previews/sard-story.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-story.jpg"
     },
     {
       "title": "سَرد · رحلتنا",
@@ -222,7 +222,7 @@
         }
       ],
       "key": "5a1b2ef1-9285-56e7-8346-5cfba7d19169",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/sard-bundle/main/previews/sard-timeline.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-timeline.jpg"
     },
     {
       "title": "سَرد · كلمة المؤسس",
@@ -286,7 +286,7 @@
         }
       ],
       "key": "1ca2c368-7bee-5c50-82d7-1d8b8d54da62",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/sard-bundle/main/previews/sard-founder.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-founder.jpg"
     },
     {
       "title": "سَرد · قيمنا",
@@ -392,7 +392,7 @@
         }
       ],
       "key": "85df867a-7945-5321-9023-9c3a6708e06d",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/sard-bundle/main/previews/sard-values.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-values.jpg"
     },
     {
       "title": "سَرد · كيف نصنعها",
@@ -489,7 +489,7 @@
         }
       ],
       "key": "001a029b-518f-59d1-8d35-1e374763d003",
-      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/sard-bundle/main/previews/sard-process.jpg"
+      "image": "https://raw.githubusercontent.com/fooz1980k-sudo/tw-sard/main/previews/sard-process.jpg"
     }
   ]
 }

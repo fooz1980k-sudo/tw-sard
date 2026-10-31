@@ -15,15 +15,15 @@ export const occCss = css`
   .tw { animation: tw 3s ease-in-out infinite; } @keyframes tw { 50% { opacity: .25; transform: scale(.8); } }
   .gold { color: var(--o-acc); }
 `;
-const lantern = (x: number, h: number, s: number, d: number) => svg`<g class="sway" style="animation-delay:${d}s" transform="translate(${x} 0)"><line x1="0" y1="0" x2="0" y2="${h}" stroke="currentColor" stroke-opacity=".5"/>
+const lantern = (x: number, h: number, s: number, d: number) => svg`<g transform="translate(${x} 0)"><g class="sway" style="animation-delay:${d}s"><line x1="0" y1="0" x2="0" y2="${h}" stroke="currentColor" stroke-opacity=".5"/>
   <g transform="translate(0 ${h}) scale(${s})"><path d="M-10 0h20l6 10h-32z" fill="currentColor"/><path d="M-16 10h32l-4 40h-24z" fill="currentColor" fill-opacity=".18" stroke="currentColor"/>
-  <circle cx="0" cy="30" r="7" fill="currentColor" fill-opacity=".9"><animate attributeName="fill-opacity" values=".9;.4;.9" dur="2.4s" repeatCount="indefinite"/></circle><path d="M-12 50h24l-6 8h-12z" fill="currentColor"/></g></g>`;
+  <circle cx="0" cy="30" r="7" fill="currentColor" fill-opacity=".9"><animate attributeName="fill-opacity" values=".9;.4;.9" dur="2.4s" repeatCount="indefinite"/></circle><path d="M-12 50h24l-6 8h-12z" fill="currentColor"/></g></g></g>`;
 const star = (x: number, y: number, r: number, d: number) => svg`<path class="tw" style="animation-delay:${d}s;transform-box:fill-box;transform-origin:center" d="M${x} ${y - r}L${x + r * .3} ${y - r * .3}L${x + r} ${y}L${x + r * .3} ${y + r * .3}L${x} ${y + r}L${x - r * .3} ${y + r * .3}L${x - r} ${y}L${x - r * .3} ${y - r * .3}Z" fill="currentColor"/>`;
 /** Decorative layer drawn on the side of the section. */
 export function ornament(kind: string) {
   const stars = [[40, 300, 6, 0], [120, 230, 4, .6], [230, 330, 5, 1.2], [300, 250, 3, .3], [180, 400, 4, 1.8], [80, 420, 3, 2.2]].map(([x, y, r, d]) => star(x, y, r, d));
-  const body = kind === 'lantern' ? svg`${lantern(70, 90, 1.3, 0)}${lantern(160, 170, 1, .8)}${lantern(250, 60, 1.5, 1.6)}<path d="M330 120a46 46 0 1 0 0 92a36 36 0 1 1 0-92z" fill="currentColor" opacity=".9"/>${stars}`
-    : kind === 'star' ? svg`<path d="M300 150a60 60 0 1 0 0 120a46 46 0 1 1 0-120z" fill="currentColor"/>${stars}${star(250, 120, 10, .4)}${star(110, 160, 8, 1)}`
+  const body = kind === 'lantern' ? svg`${lantern(70, 110, 2.1, 0)}${lantern(170, 210, 1.6, .8)}${lantern(270, 60, 2.4, 1.6)}<path d="M340 250a52 52 0 1 0 0 104a66 66 0 0 1 0-104z" fill="currentColor" opacity=".9"/>${stars}`
+    : kind === 'star' ? svg`<path d="M290 120a80 80 0 1 0 0 160a100 100 0 0 1 0-160z" fill="currentColor"/>${stars}${star(250, 120, 10, .4)}${star(110, 160, 8, 1)}`
     : kind === 'palm' ? svg`<g fill="currentColor" opacity=".9"><path d="M200 470c4-80 2-150-6-210h10c6 60 8 130 4 210z"/>${[-70, -35, 0, 35, 70, 110, -110].map((a) => svg`<path transform="rotate(${a} 200 260)" d="M200 260c40-30 90-30 120-10c-40-6-80 0-120 10z"/>`)}</g>
         <g fill="none" stroke="currentColor" stroke-width="5" opacity=".9"><path d="M90 420l200-120" /><path d="M110 300l160 120"/></g>${stars}`
     : kind === 'geo' ? svg`<g fill="none" stroke="currentColor" stroke-opacity=".7">${[0, 1, 2, 3].map((i) => svg`<rect x="${120 + i * 14}" y="${150 + i * 14}" width="${180 - i * 28}" height="${180 - i * 28}" transform="rotate(45 210 240)"/>`)}<circle cx="210" cy="240" r="140" stroke-dasharray="3 7"/></g>${stars}`
