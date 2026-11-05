@@ -1,6 +1,6 @@
-import { css as g, LitElement as x, html as s } from "lit";
-import { property as h, state as f } from "lit/decorators.js";
-const m = g`
+import { css as g, LitElement as u, html as c } from "lit";
+import { property as m, state as h } from "lit/decorators.js";
+const x = g`
   :host { display: block; --tf-accent: var(--tf-custom, var(--color-primary, #c9a45c)); --tf-ink: #0f0c18; --tf-ivory: #f6f1e7; --tf-mut: #a59bc2;
     --tf-gold: linear-gradient(135deg, #f5d68a, #c9a45c 55%, #9a7634); font-family: inherit; direction: inherit; }
   :host([hidden]) { display: none; }
@@ -17,17 +17,42 @@ const m = g`
   .skel { background: linear-gradient(90deg, #8881 0, #8882 50%, #8881 100%); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 14px; }
   @keyframes sk { to { background-position: -200% 0; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-`, o = (r) => String(r && typeof r == "object" ? r[(document.documentElement.lang || "ar").slice(0, 2)] ?? r.ar ?? "" : r ?? ""), b = (r) => r ? `--tf-custom:${r}` : "";
-var u = Object.defineProperty, l = (r, t, n, i) => {
-  for (var e = void 0, c = r.length - 1, p; c >= 0; c--)
-    (p = r[c]) && (e = p(t, n, e) || e);
-  return e && u(t, n, e), e;
+`, f = () => window.Salla, b = () => {
+  var i, t, r, e, n;
+  try {
+    const a = ((t = (i = f()) == null ? void 0 : i.lang) == null ? void 0 : t.locale) ?? ((n = (e = (r = f()) == null ? void 0 : r.config) == null ? void 0 : e.get) == null ? void 0 : n.call(e, "user.language_code"));
+    if (typeof a == "string" && a) return a.slice(0, 2);
+  } catch {
+  }
+  return (document.documentElement.lang || "ar").slice(0, 2);
+}, o = (i) => {
+  if (i == null) return "";
+  if (typeof i == "string") {
+    const t = i.trim();
+    if (t.startsWith("{") && t.endsWith("}"))
+      try {
+        return o(JSON.parse(t));
+      } catch {
+      }
+    return i;
+  }
+  if (typeof i == "number" || typeof i == "boolean") return String(i);
+  if (typeof i == "object") {
+    const t = i, r = t[b()] ?? t.ar ?? t.en ?? Object.values(t).find((e) => typeof e == "string" && e);
+    return typeof r == "string" ? r : "";
+  }
+  return "";
+}, y = (i) => i ? `--tf-custom:${i}` : "";
+var v = Object.defineProperty, l = (i, t, r, e) => {
+  for (var n = void 0, a = i.length - 1, p; a >= 0; a--)
+    (p = i[a]) && (n = p(t, r, n) || n);
+  return n && v(t, r, n), n;
 };
-const d = class d extends x {
+const d = class d extends u {
   constructor() {
     super(...arguments), this.prog = 0, this.lit = /* @__PURE__ */ new Set(), this.onScroll = () => {
-      var n;
-      const t = (n = this.renderRoot.querySelector(".tl")) == null ? void 0 : n.getBoundingClientRect();
+      var r;
+      const t = (r = this.renderRoot.querySelector(".tl")) == null ? void 0 : r.getBoundingClientRect();
       t && (this.prog = Math.max(0, Math.min(1, (innerHeight * 0.6 - t.top) / t.height)));
     };
   }
@@ -40,19 +65,19 @@ const d = class d extends x {
   }
   updated() {
     var t;
-    (t = this.io) == null || t.disconnect(), this.io = new IntersectionObserver((n) => {
-      const i = new Set(this.lit);
-      n.forEach((e) => e.isIntersecting && i.add(Number(e.target.dataset.i))), i.size !== this.lit.size && (this.lit = i);
-    }, { rootMargin: "0px 0px -12% 0px" }), this.renderRoot.querySelectorAll(".it").forEach((n) => this.io.observe(n)), this.onScroll();
+    (t = this.io) == null || t.disconnect(), this.io = new IntersectionObserver((r) => {
+      const e = new Set(this.lit);
+      r.forEach((n) => n.isIntersecting && e.add(Number(n.target.dataset.i))), e.size !== this.lit.size && (this.lit = e);
+    }, { rootMargin: "0px 0px -12% 0px" }), this.renderRoot.querySelectorAll(".it").forEach((r) => this.io.observe(r)), this.onScroll();
   }
   render() {
-    const t = this.config ?? {}, n = (t.items ?? []).filter((i) => o(i.title) || o(i.year));
-    return s`<div class="wrap" style=${b(t.color)}><div style="text-align:center"><span class="eyebrow">🕰️ رحلتنا</span><h2 class="title">${o(t.title) || "محطات صنعتنا"}</h2>${o(t.subtitle) ? s`<p class="sub">${o(t.subtitle)}</p>` : ""}</div>
+    const t = this.config ?? {}, r = (t.items ?? []).filter((e) => o(e.title) || o(e.year));
+    return c`<div class="wrap" style=${y(t.color)}><div style="text-align:center"><span class="eyebrow">🕰️ رحلتنا</span><h2 class="title">${o(t.title) || "محطات صنعتنا"}</h2>${o(t.subtitle) ? c`<p class="sub">${o(t.subtitle)}</p>` : ""}</div>
       <div class="tl"><div class="ln"></div><div class="fl" style="height:${this.prog * 100}%"></div>
-        ${n.map((i, e) => s`<div class="it ${this.lit.has(e) ? "on" : ""}" data-i=${e}><span class="dot"></span><div class="cd"><div class="yr">${o(i.year)}</div><b>${o(i.title)}</b>${o(i.text) ? s`<p>${o(i.text)}</p>` : ""}${i.image ? s`<img src=${i.image} alt="" loading="lazy" />` : ""}</div></div>`)}</div></div>`;
+        ${r.map((e, n) => c`<div class="it ${this.lit.has(n) ? "on" : ""}" data-i=${n}><span class="dot"></span><div class="cd"><div class="yr">${o(e.year)}</div><b>${o(e.title)}</b>${o(e.text) ? c`<p>${o(e.text)}</p>` : ""}${e.image ? c`<img src=${e.image} alt="" loading="lazy" />` : ""}</div></div>`)}</div></div>`;
   }
 };
-d.styles = [m, g`
+d.styles = [x, g`
     .tl { position: relative; padding-block: 10px; }
     .ln, .fl { position: absolute; top: 0; bottom: 0; inset-inline-start: 50%; width: 2px; margin-inline-start: -1px; background: #0000001a; } .fl { bottom: auto; background: var(--tf-gold); }
     .it { position: relative; display: grid; grid-template-columns: 1fr 64px 1fr; align-items: center; margin: 26px 0; }
@@ -64,17 +89,17 @@ d.styles = [m, g`
     .cd b { display: block; font-size: 19px; margin: 4px 0; } .cd p { margin: 0; opacity: .7; line-height: 1.8; } .cd img { width: 100%; max-width: 320px; border-radius: 18px; margin-top: 12px; aspect-ratio: 16/10; object-fit: cover; }
     @media (max-width: 720px) { .ln, .fl { inset-inline-start: 14px; } .it { grid-template-columns: 30px 1fr; } .dot { grid-column: 1; justify-self: start; margin-inline-start: 5px; } .it .cd { grid-column: 2 !important; text-align: start !important; } }
   `];
-let a = d;
+let s = d;
 l([
-  h({ type: Object })
-], a.prototype, "config");
+  m({ type: Object })
+], s.prototype, "config");
 l([
-  f()
-], a.prototype, "prog");
+  h()
+], s.prototype, "prog");
 l([
-  f()
-], a.prototype, "lit");
-typeof a < "u" && a.registerSallaComponent("salla-sard-timeline");
+  h()
+], s.prototype, "lit");
+typeof s < "u" && s.registerSallaComponent("salla-sard-timeline");
 export {
-  a as default
+  s as default
 };

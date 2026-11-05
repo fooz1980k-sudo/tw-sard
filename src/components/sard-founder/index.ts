@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { onView, style, txt } from '../../shared/salla';
+import { onView, style, localizedString } from '../../shared/salla';
 
 /** Founder's note: portrait, a quote that writes itself word by word, and a signature. */
 export default class SardFounder extends LitElement {
@@ -20,10 +20,10 @@ export default class SardFounder extends LitElement {
   `];
   firstUpdated() { onView(this, () => (this.seen = true), 0.35); }
   render() {
-    const c = this.config ?? {}; const words = (txt(c.quote) || 'كل قطعة نرسلها تحمل جزء منا.').split(/\s+/);
+    const c = this.config ?? {}; const words = (localizedString(c.quote) || 'كل قطعة نرسلها تحمل جزء منا.').split(/\s+/);
     return html`<div class="wrap" style=${style(c.color)}><div class="box dark ${this.seen ? 'seen' : ''}">
-      ${c.image ? html`<div class="ph"><img src=${c.image} alt=${txt(c.name)} loading="lazy" /></div>` : html`<span></span>`}
+      ${c.image ? html`<div class="ph"><img src=${c.image} alt=${localizedString(c.name)} loading="lazy" /></div>` : html`<span></span>`}
       <div><span class="qm" aria-hidden="true">“</span><q>${words.map((w, i) => html`<span style="transition-delay:${i * 0.05}s">${w} </span>`)}</q>
-        ${txt(c.name) ? html`<div class="sig" aria-hidden="true">${txt(c.name)}</div><div class="nm">${txt(c.name)}</div>` : ''}${txt(c.role) ? html`<div class="rl">${txt(c.role)}</div>` : ''}</div></div></div>`;
+        ${localizedString(c.name) ? html`<div class="sig" aria-hidden="true">${localizedString(c.name)}</div><div class="nm">${localizedString(c.name)}</div>` : ''}${localizedString(c.role) ? html`<div class="rl">${localizedString(c.role)}</div>` : ''}</div></div></div>`;
   }
 }

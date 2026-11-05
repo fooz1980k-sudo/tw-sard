@@ -1,6 +1,6 @@
-import { css as d, LitElement as x, html as p } from "lit";
-import { property as g, state as m } from "lit/decorators.js";
-const h = d`
+import { css as f, LitElement as x, html as p } from "lit";
+import { property as m, state as h } from "lit/decorators.js";
+const u = f`
   :host { display: block; --tf-accent: var(--tf-custom, var(--color-primary, #c9a45c)); --tf-ink: #0f0c18; --tf-ivory: #f6f1e7; --tf-mut: #a59bc2;
     --tf-gold: linear-gradient(135deg, #f5d68a, #c9a45c 55%, #9a7634); font-family: inherit; direction: inherit; }
   :host([hidden]) { display: none; }
@@ -17,38 +17,63 @@ const h = d`
   .skel { background: linear-gradient(90deg, #8881 0, #8882 50%, #8881 100%); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 14px; }
   @keyframes sk { to { background-position: -200% 0; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-`, a = (t) => String(t && typeof t == "object" ? t[(document.documentElement.lang || "ar").slice(0, 2)] ?? t.ar ?? "" : t ?? "");
-function b(t, e, r = 0.25) {
+`, d = () => window.Salla, b = () => {
+  var e, t, r, i, n;
+  try {
+    const o = ((t = (e = d()) == null ? void 0 : e.lang) == null ? void 0 : t.locale) ?? ((n = (i = (r = d()) == null ? void 0 : r.config) == null ? void 0 : i.get) == null ? void 0 : n.call(i, "user.language_code"));
+    if (typeof o == "string" && o) return o.slice(0, 2);
+  } catch {
+  }
+  return (document.documentElement.lang || "ar").slice(0, 2);
+}, a = (e) => {
+  if (e == null) return "";
+  if (typeof e == "string") {
+    const t = e.trim();
+    if (t.startsWith("{") && t.endsWith("}"))
+      try {
+        return a(JSON.parse(t));
+      } catch {
+      }
+    return e;
+  }
+  if (typeof e == "number" || typeof e == "boolean") return String(e);
+  if (typeof e == "object") {
+    const t = e, r = t[b()] ?? t.ar ?? t.en ?? Object.values(t).find((i) => typeof i == "string" && i);
+    return typeof r == "string" ? r : "";
+  }
+  return "";
+};
+function y(e, t, r = 0.25) {
   if (!("IntersectionObserver" in window)) {
-    e();
+    t();
     return;
   }
-  const n = new IntersectionObserver((i) => {
-    i.some((s) => s.isIntersecting) && (n.disconnect(), e());
+  const i = new IntersectionObserver((n) => {
+    n.some((o) => o.isIntersecting) && (i.disconnect(), t());
   }, { threshold: r });
-  n.observe(t);
+  i.observe(e);
 }
-const u = (t) => t ? `--tf-custom:${t}` : "";
-var v = Object.defineProperty, f = (t, e, r, n) => {
-  for (var i = void 0, s = t.length - 1, c; s >= 0; s--)
-    (c = t[s]) && (i = c(e, r, i) || i);
-  return i && v(e, r, i), i;
+const v = (e) => e ? `--tf-custom:${e}` : "";
+var w = Object.defineProperty, g = (e, t, r, i) => {
+  for (var n = void 0, o = e.length - 1, c; o >= 0; o--)
+    (c = e[o]) && (n = c(t, r, n) || n);
+  return n && w(t, r, n), n;
 };
 const l = class l extends x {
   constructor() {
     super(...arguments), this.seen = !1;
   }
   firstUpdated() {
-    b(this, () => this.seen = !0, 0.3);
+    y(this, () => this.seen = !0, 0.3);
   }
   render() {
-    const e = this.config ?? {}, r = (e.steps ?? []).filter((n) => a(n.title)).slice(0, 6);
-    return p`<div class="wrap ${this.seen ? "seen" : ""}" style=${u(e.color)}><div style="text-align:center"><span class="eyebrow">🪡 كيف نصنعها</span><h2 class="title">${a(e.title) || "من الفكرة لين باب بيتك"}</h2>${a(e.subtitle) ? p`<p class="sub">${a(e.subtitle)}</p>` : ""}</div>
+    const t = this.config ?? {}, r = (t.steps ?? []).filter((i) => a(i.title)).slice(0, 6);
+    return p`<div class="wrap ${this.seen ? "seen" : ""}" style=${v(t.color)}><div style="text-align:center"><span class="eyebrow">🪡 كيف نصنعها</span><h2 class="title">${a(t.title) || "من الفكرة لين باب بيتك"}</h2>${a(t.subtitle) ? p`<p class="sub">${a(t.subtitle)}</p>` : ""}</div>
       <div class="row" style="--n:${r.length || 1}"><div class="ln"><i></i></div>
-        ${r.map((n, i) => p`<div class="st" style="transition-delay:${0.25 * i}s"><div class="ic">${n.emoji || "✦"}<small>${i + 1}</small></div><div><b>${a(n.title)}</b>${a(n.text) ? p`<p>${a(n.text)}</p>` : ""}</div></div>`)}</div></div>`;
+        ${r.map((i, n) => p`<div class="st" style="transition-delay:${0.25 * n}s"><div class="ic">${i.emoji || "✦"}<small>${n + 1}</small></div><div><b>${a(i.title)}</b>${a(i.text) ? p`<p>${a(i.text)}</p>` : ""}</div></div>`)}</div></div>`;
   }
 };
-l.styles = [h, d`
+l.styles = [u, f`
     .row { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 18px; position: relative; text-align: center; }
     .ln { position: absolute; top: 40px; inset-inline: calc(50% / var(--n)); height: 2px; background: #00000014; } .ln i { display: block; height: 100%; width: 0; background: var(--tf-gold); transition: width 1.8s cubic-bezier(.2,.8,.2,1); }
     .seen .ln i { width: 100%; }
@@ -59,14 +84,14 @@ l.styles = [h, d`
     @media (max-width: 760px) { .row { grid-template-columns: 1fr; text-align: start; gap: 22px; } .ln { inset-inline-start: 40px; inset-inline-end: auto; top: 40px; bottom: 40px; width: 2px; height: auto; } .ln i { width: 100% !important; height: 0; transition: height 1.8s; } .seen .ln i { height: 100%; }
       .st { display: grid; grid-template-columns: 80px 1fr; gap: 16px; align-items: center; } .ic { margin: 0; } p { margin: 0; } }
   `];
-let o = l;
-f([
-  g({ type: Object })
-], o.prototype, "config");
-f([
-  m()
-], o.prototype, "seen");
-typeof o < "u" && o.registerSallaComponent("salla-sard-process");
+let s = l;
+g([
+  m({ type: Object })
+], s.prototype, "config");
+g([
+  h()
+], s.prototype, "seen");
+typeof s < "u" && s.registerSallaComponent("salla-sard-process");
 export {
-  o as default
+  s as default
 };
