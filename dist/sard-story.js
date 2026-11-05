@@ -1,6 +1,6 @@
-import { css as f, LitElement as h, html as s } from "lit";
-import { property as g, state as m } from "lit/decorators.js";
-const x = f`
+import { css as m, LitElement as h, html as l } from "lit";
+import { property as x, state as g } from "lit/decorators.js";
+const b = m`
   :host { display: block; --tf-accent: var(--tf-custom, var(--color-primary, #c9a45c)); --tf-ink: #0f0c18; --tf-ivory: #f6f1e7; --tf-mut: #a59bc2;
     --tf-gold: linear-gradient(135deg, #f5d68a, #c9a45c 55%, #9a7634); font-family: inherit; direction: inherit; }
   :host([hidden]) { display: none; }
@@ -17,22 +17,47 @@ const x = f`
   .skel { background: linear-gradient(90deg, #8881 0, #8882 50%, #8881 100%); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 14px; }
   @keyframes sk { to { background-position: -200% 0; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
-`, o = (e) => String(e && typeof e == "object" ? e[(document.documentElement.lang || "ar").slice(0, 2)] ?? e.ar ?? "" : e ?? "");
-function b(e, t, n = 0.25) {
+`, f = () => window.Salla, u = () => {
+  var e, t, i, n, r;
+  try {
+    const a = ((t = (e = f()) == null ? void 0 : e.lang) == null ? void 0 : t.locale) ?? ((r = (n = (i = f()) == null ? void 0 : i.config) == null ? void 0 : n.get) == null ? void 0 : r.call(n, "user.language_code"));
+    if (typeof a == "string" && a) return a.slice(0, 2);
+  } catch {
+  }
+  return (document.documentElement.lang || "ar").slice(0, 2);
+}, s = (e) => {
+  if (e == null) return "";
+  if (typeof e == "string") {
+    const t = e.trim();
+    if (t.startsWith("{") && t.endsWith("}"))
+      try {
+        return s(JSON.parse(t));
+      } catch {
+      }
+    return e;
+  }
+  if (typeof e == "number" || typeof e == "boolean") return String(e);
+  if (typeof e == "object") {
+    const t = e, i = t[u()] ?? t.ar ?? t.en ?? Object.values(t).find((n) => typeof n == "string" && n);
+    return typeof i == "string" ? i : "";
+  }
+  return "";
+};
+function y(e, t, i = 0.25) {
   if (!("IntersectionObserver" in window)) {
     t();
     return;
   }
-  const l = new IntersectionObserver((i) => {
-    i.some((r) => r.isIntersecting) && (l.disconnect(), t());
-  }, { threshold: n });
-  l.observe(e);
+  const n = new IntersectionObserver((r) => {
+    r.some((a) => a.isIntersecting) && (n.disconnect(), t());
+  }, { threshold: i });
+  n.observe(e);
 }
-const u = (e) => e ? `--tf-custom:${e}` : "";
-var v = Object.defineProperty, c = (e, t, n, l) => {
-  for (var i = void 0, r = e.length - 1, d; r >= 0; r--)
-    (d = e[r]) && (i = d(t, n, i) || i);
-  return i && v(t, n, i), i;
+const v = (e) => e ? `--tf-custom:${e}` : "";
+var w = Object.defineProperty, c = (e, t, i, n) => {
+  for (var r = void 0, a = e.length - 1, d; a >= 0; a--)
+    (d = e[a]) && (r = d(t, i, r) || r);
+  return r && w(t, i, r), r;
 };
 const p = class p extends h {
   constructor() {
@@ -50,18 +75,18 @@ const p = class p extends h {
     super.disconnectedCallback(), removeEventListener("scroll", this.onScroll);
   }
   firstUpdated() {
-    b(this, () => this.seen = !0, 0.2), this.onScroll();
+    y(this, () => this.seen = !0, 0.2), this.onScroll();
   }
   render() {
-    const t = this.config ?? {}, n = Math.max(-1, Math.min(1, this.y));
-    return s`<div class="wrap ${this.seen ? "seen" : ""}" style=${u(t.color)}><div class="g ${t.flip ? "flip" : ""}">
-      <div class="media">${t.image ? s`<div class="a"><img src=${t.image} alt="" loading="lazy" style="transform:translateY(${n * -40}px)" /></div>` : ""}
-        ${t.image2 ? s`<div class="b"><img src=${t.image2} alt="" loading="lazy" style="transform:translateY(${n * 50}px)" /></div>` : ""}</div>
-      <div class="txt"><span class="eyebrow">${o(t.eyebrow) || "حكايتنا"}</span><h2 class="title">${o(t.title) || "بدأنا بفكرة… وصارت تُحفة"}</h2>
-        <p class="p">${o(t.text)}</p>${o(t.button) && t.link ? s`<a class="btn ghost" href=${t.link}>${o(t.button)} ←</a>` : s`<span></span>`}</div></div></div>`;
+    const t = this.config ?? {}, i = Math.max(-1, Math.min(1, this.y));
+    return l`<div class="wrap ${this.seen ? "seen" : ""}" style=${v(t.color)}><div class="g ${t.flip ? "flip" : ""}">
+      <div class="media">${t.image ? l`<div class="a"><img src=${t.image} alt="" loading="lazy" style="transform:translateY(${i * -40}px)" /></div>` : ""}
+        ${t.image2 ? l`<div class="b"><img src=${t.image2} alt="" loading="lazy" style="transform:translateY(${i * 50}px)" /></div>` : ""}</div>
+      <div class="txt"><span class="eyebrow">${s(t.eyebrow) || "حكايتنا"}</span><h2 class="title">${s(t.title) || "بدأنا بفكرة… وصارت تُحفة"}</h2>
+        <p class="p">${s(t.text)}</p>${s(t.button) && t.link ? l`<a class="btn ghost" href=${t.link}>${s(t.button)} ←</a>` : l`<span></span>`}</div></div></div>`;
   }
 };
-p.styles = [x, f`
+p.styles = [b, m`
     .g { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 90px); align-items: center; } .flip .media { order: 2; }
     @media (max-width: 860px) { .g { grid-template-columns: 1fr; } .flip .media { order: 0; } }
     .media { position: relative; min-height: clamp(360px, 48vw, 600px); }
@@ -73,17 +98,17 @@ p.styles = [x, f`
     .p { font-size: clamp(15px, 1.7vw, 18px); line-height: 2.05; opacity: .8; white-space: pre-line; margin: 0 0 28px; }
     .p { border-inline-start: 3px solid var(--tf-accent); padding-inline-start: 20px; }
   `];
-let a = p;
+let o = p;
 c([
-  g({ type: Object })
-], a.prototype, "config");
+  x({ type: Object })
+], o.prototype, "config");
 c([
-  m()
-], a.prototype, "y");
+  g()
+], o.prototype, "y");
 c([
-  m()
-], a.prototype, "seen");
-typeof a < "u" && a.registerSallaComponent("salla-sard-story");
+  g()
+], o.prototype, "seen");
+typeof o < "u" && o.registerSallaComponent("salla-sard-story");
 export {
-  a as default
+  o as default
 };

@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { style, txt } from '../../shared/salla';
+import { style, localizedString } from '../../shared/salla';
 
 type V = { emoji?: string; title?: unknown; text?: unknown };
 /** Brand values grid with a light that follows the cursor across each card. */
@@ -18,8 +18,8 @@ export default class SardValues extends LitElement {
   `];
   private mv(e: PointerEvent) { const el = e.currentTarget as HTMLElement; const r = el.getBoundingClientRect(); el.style.setProperty('--mx', `${e.clientX - r.left}px`); el.style.setProperty('--my', `${e.clientY - r.top}px`); }
   render() {
-    const c = this.config ?? {}; const items = (c.items ?? []).filter((i) => txt(i.title));
-    return html`<div class="${c.dark ? 'dark dk' : ''}"><div class="wrap" style=${style(c.color)}><span class="eyebrow">💎 قيمنا</span><h2 class="title">${txt(c.title) || 'اللي يميزنا'}</h2>${txt(c.subtitle) ? html`<p class="sub">${txt(c.subtitle)}</p>` : ''}
-      <div class="grid">${items.map((v, i) => html`<div class="v" @pointermove=${this.mv}><span class="n">${String(i + 1).padStart(2, '0')}</span><span class="e">${v.emoji || '✦'}</span><b>${txt(v.title)}</b>${txt(v.text) ? html`<p>${txt(v.text)}</p>` : ''}</div>`)}</div></div></div>`;
+    const c = this.config ?? {}; const items = (c.items ?? []).filter((i) => localizedString(i.title));
+    return html`<div class="${c.dark ? 'dark dk' : ''}"><div class="wrap" style=${style(c.color)}><span class="eyebrow">💎 قيمنا</span><h2 class="title">${localizedString(c.title) || 'اللي يميزنا'}</h2>${localizedString(c.subtitle) ? html`<p class="sub">${localizedString(c.subtitle)}</p>` : ''}
+      <div class="grid">${items.map((v, i) => html`<div class="v" @pointermove=${this.mv}><span class="n">${String(i + 1).padStart(2, '0')}</span><span class="e">${v.emoji || '✦'}</span><b>${localizedString(v.title)}</b>${localizedString(v.text) ? html`<p>${localizedString(v.text)}</p>` : ''}</div>`)}</div></div></div>`;
   }
 }

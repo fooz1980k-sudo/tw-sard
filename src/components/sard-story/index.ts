@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { onView, style, txt } from '../../shared/salla';
+import { onView, style, localizedString } from '../../shared/salla';
 
 /** Editorial story block: layered images with scroll parallax and a drop-cap paragraph. */
 export default class SardStory extends LitElement {
@@ -30,7 +30,7 @@ export default class SardStory extends LitElement {
     return html`<div class="wrap ${this.seen ? 'seen' : ''}" style=${style(c.color)}><div class="g ${c.flip ? 'flip' : ''}">
       <div class="media">${c.image ? html`<div class="a"><img src=${c.image} alt="" loading="lazy" style="transform:translateY(${y * -40}px)" /></div>` : ''}
         ${c.image2 ? html`<div class="b"><img src=${c.image2} alt="" loading="lazy" style="transform:translateY(${y * 50}px)" /></div>` : ''}</div>
-      <div class="txt"><span class="eyebrow">${txt(c.eyebrow) || 'حكايتنا'}</span><h2 class="title">${txt(c.title) || 'بدأنا بفكرة… وصارت تُحفة'}</h2>
-        <p class="p">${txt(c.text)}</p>${txt(c.button) && c.link ? html`<a class="btn ghost" href=${c.link}>${txt(c.button)} ←</a>` : html`<span></span>`}</div></div></div>`;
+      <div class="txt"><span class="eyebrow">${localizedString(c.eyebrow) || 'حكايتنا'}</span><h2 class="title">${localizedString(c.title) || 'بدأنا بفكرة… وصارت تُحفة'}</h2>
+        <p class="p">${localizedString(c.text)}</p>${localizedString(c.button) && c.link ? html`<a class="btn ghost" href=${c.link}>${localizedString(c.button)} ←</a>` : html`<span></span>`}</div></div></div>`;
   }
 }

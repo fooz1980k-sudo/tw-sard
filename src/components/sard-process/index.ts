@@ -1,7 +1,7 @@
 import { css, html, LitElement } from 'lit';
 import { property, state } from 'lit/decorators.js';
 import { base } from '../../shared/styles';
-import { onView, style, txt } from '../../shared/salla';
+import { onView, style, localizedString } from '../../shared/salla';
 
 type St = { emoji?: string; title?: unknown; text?: unknown };
 /** "How it's made / how to order" steps joined by a line that draws in on view. */
@@ -21,9 +21,9 @@ export default class SardProcess extends LitElement {
   `];
   firstUpdated() { onView(this, () => (this.seen = true), 0.3); }
   render() {
-    const c = this.config ?? {}; const steps = (c.steps ?? []).filter((s) => txt(s.title)).slice(0, 6);
-    return html`<div class="wrap ${this.seen ? 'seen' : ''}" style=${style(c.color)}><div style="text-align:center"><span class="eyebrow">🪡 كيف نصنعها</span><h2 class="title">${txt(c.title) || 'من الفكرة لين باب بيتك'}</h2>${txt(c.subtitle) ? html`<p class="sub">${txt(c.subtitle)}</p>` : ''}</div>
+    const c = this.config ?? {}; const steps = (c.steps ?? []).filter((s) => localizedString(s.title)).slice(0, 6);
+    return html`<div class="wrap ${this.seen ? 'seen' : ''}" style=${style(c.color)}><div style="text-align:center"><span class="eyebrow">🪡 كيف نصنعها</span><h2 class="title">${localizedString(c.title) || 'من الفكرة لين باب بيتك'}</h2>${localizedString(c.subtitle) ? html`<p class="sub">${localizedString(c.subtitle)}</p>` : ''}</div>
       <div class="row" style="--n:${steps.length || 1}"><div class="ln"><i></i></div>
-        ${steps.map((s, i) => html`<div class="st" style="transition-delay:${0.25 * i}s"><div class="ic">${s.emoji || '✦'}<small>${i + 1}</small></div><div><b>${txt(s.title)}</b>${txt(s.text) ? html`<p>${txt(s.text)}</p>` : ''}</div></div>`)}</div></div>`;
+        ${steps.map((s, i) => html`<div class="st" style="transition-delay:${0.25 * i}s"><div class="ic">${s.emoji || '✦'}<small>${i + 1}</small></div><div><b>${localizedString(s.title)}</b>${localizedString(s.text) ? html`<p>${localizedString(s.text)}</p>` : ''}</div></div>`)}</div></div>`;
   }
 }
